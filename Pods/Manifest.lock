@@ -1,0 +1,22 @@
+PODS:
+  - Swifter (2.4.0)
+
+DEPENDENCIES:
+  - Swifter (from `https://github.com/mattdonnelly/Swifter.git`, tag `2.4.0`)
+
+EXTERNAL SOURCES:
+  Swifter:
+    :git: https://github.com/mattdonnelly/Swifter.git
+    :tag: 2.4.0
+
+CHECKOUT OPTIONS:
+  Swifter:
+    :git: https://github.com/mattdonnelly/Swifter.git
+    :tag: 2.4.0
+
+SPEC CHECKSUMS:
+  Swifter: 0955a05325dc182fabfb1468305aef887180e0f1
+
+PODFILE CHECKSUM: 0568c10dc8674b8de46c07d00d85de81ec2b497b
+
+COCOAPODS: 1.9.1
