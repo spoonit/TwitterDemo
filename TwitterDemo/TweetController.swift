@@ -10,7 +10,7 @@ import UIKit
 import Swifter
 import SafariServices
 
-class TweetController: UIViewController, SFSafariViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class TweetController: UIViewController, SFSafariViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var swifter = Swifter(consumerKey: "gH5EPwSAJngkmMaXKmL1hneJc", consumerSecret: "vECpae3f2WHgGqOxZAh3wLk5zH5lagACwmiO0XmJq3jUEVLtaT")
     var tokenApproved = false
@@ -53,11 +53,6 @@ class TweetController: UIViewController, SFSafariViewControllerDelegate, UIColle
         controller.dismiss(animated: true, completion: nil)
     }
 
-    //UICollectionView methods
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return followers.count
     }
@@ -73,12 +68,19 @@ class TweetController: UIViewController, SFSafariViewControllerDelegate, UIColle
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
-        //Get window size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let screenRect = UIScreen.main.bounds
-
-        return CGSize(width: screenRect.width, height: 50.0)
+        let width = screenRect.width
+        let height : CGFloat = 15
+        
+        return CGSize(width: width, height: height)
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let height: CGFloat = 150
+
+        return CGSize(width: width, height: height)
+    }
 }
 
