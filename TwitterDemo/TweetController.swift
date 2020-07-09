@@ -33,6 +33,7 @@ class TweetController: UIViewController, SFSafariViewControllerDelegate, UIColle
                 self.getFollowers()
             }) { (err) in
                 print(err)
+                self.showErrorAlert()
             }
         }
     }
@@ -46,7 +47,15 @@ class TweetController: UIViewController, SFSafariViewControllerDelegate, UIColle
             self.followerCollectionView.reloadData()
         }) { (err) in
             print(err)
+            self.showErrorAlert()
         }
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Could not load information", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
